@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = SignUp.new(user_params).user
     if @user.save
       assign_cookie
       redirect_to root_path

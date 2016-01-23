@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<% if current_user %>
+  <%= link_to "Sign off", url: sessions_path(current_user), method: :delete %>
+<% else %>
+  <%= link_to "Sign in", new_session_path %>
+  <%= link_to "Sign up", new_user_path %>
+<% end %>
+
 <%= yield %>
 
 </body>

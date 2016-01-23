@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'homes#show', via: :get
 
+  resources :users, only: [:new, :create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

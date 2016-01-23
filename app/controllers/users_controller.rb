@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # skip_before_filter :authorize, only: [:create, :new], raise: false
 
   def new
+    flash.clear
     @user = User.new
   end
 
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
       assign_cookie
       redirect_to root_path
     else
+      flash[:errors] = @user.errors.full_messages
       render :new
     end
   end
@@ -30,6 +32,6 @@ class UsersController < ApplicationController
   # end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

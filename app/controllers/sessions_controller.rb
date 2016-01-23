@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
+  ERROR_MESSAGE = "Your email or password is incorrect."
+
   def new
+    flash.clear
   end
 
   def create
@@ -8,6 +11,7 @@ class SessionsController < ApplicationController
       assign_cookie
       redirect_to root_path
     else
+      flash[:errors] = [ERROR_MESSAGE]
       render :new
     end
   end

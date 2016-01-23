@@ -1,5 +1,7 @@
 <h1>Sign in!</h1>
 
+<%= render partial: "shared/errors" %>
+
 <%= form_for :user, url: sessions_path do |f| %>
   <div class="form-group">
     <%= f.label :email, class: "form-label" %>

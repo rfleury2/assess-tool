@@ -1,0 +1,17 @@
+<%= render partial: 'shared/errors' %>
+
+<%= form_for :answer, url: question_answers_path(question) do |f| %>
+  <div class='new-answer'>
+    <span class="form-group">
+      <%= f.text_field :content, class: "form-control answer-content" %>
+    </span>
+
+    <span class="answer-checkbox">
+      <%= f.check_box :correct %>
+    </span>
+
+    <span class="answer-submit">
+      <%= f.submit "Submit", class: 'btn btn-primary' %>
+    </span>
+  </div>
+<% end %>

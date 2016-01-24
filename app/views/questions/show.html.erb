@@ -1,1 +1,5 @@
-<%= @question.prompt %>
+<div><%= @question.prompt %></div>
+
+<ul class="list-group">
+  <%= render @question.answers %>
+</ul>

@@ -10,6 +10,15 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    answer = Answer.find_by(id: params[:id])
+    if answer.try(:destroy)
+      return render nothing: true, status: 200
+    else
+      return render nothing: true, status: 400
+    end
+  end
+
   private
 
   def answer_params

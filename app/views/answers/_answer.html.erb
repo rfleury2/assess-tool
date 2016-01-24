@@ -1,5 +1,9 @@
-<li class="list-group-item">
+<li class="answer list-group-item">
   <%= answer.content %>
+
+  <%= link_to question_answer_path(answer.question, answer), method: :delete, remote: true, class: 'question-delete' do %>
+    <span class='fa fa-remove fa-2x nomark'></span>
+  <% end %>
 
   <% if answer.correct %>
     <span class='pull-right'>

@@ -7,7 +7,11 @@
     </span>
 
     <span class="answer-checkbox">
-      <%= f.check_box :correct %>
+      Correct answer?<%= f.check_box :correct, class: 'correct-answer-checkbox' %>
+      <span class='answer-correctness-indicator hidden'>
+        <!-- TODO: Implement binding for checkbox -->
+        <!-- <span class='fa fa-check fa-2x checkmark'></span> -->
+      </span>
     </span>
 
     <span class="answer-submit">

@@ -9,6 +9,7 @@ gem "font-awesome-rails"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'responders'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

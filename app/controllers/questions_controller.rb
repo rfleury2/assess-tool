@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    flash[:errors] = nil
     @question = Question.find_by(id: params[:id])
   end
 

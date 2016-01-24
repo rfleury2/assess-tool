@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: 'shared/header' %>
+  <div class='errors'>
+    <%= render partial: 'shared/header' %>
+  </div>
 
   <div class='container'>
     <%= yield %>

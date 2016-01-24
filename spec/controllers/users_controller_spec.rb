@@ -15,7 +15,6 @@ RSpec.describe UsersController, type: :controller do
     let(:find_user) { User.find_by(name: "Paolo Maldini") }
 
     context 'valid user' do
-
       before do 
         request = post :create, { user: { name: "Paolo Maldini", email: "pmaldini@acmilan.it", password: "sosovalid", password_confirmation: "sosovalid" } }
       end
@@ -25,7 +24,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'redirects to home page' do
-        expect(request).to redirect_to root_path
+        expect(request).to redirect_to dashboard_path
       end
 
       it { should_not set_flash }

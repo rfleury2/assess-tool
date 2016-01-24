@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = SignUp.new(user_params).user
     if @user.save
       assign_cookie
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash[:errors] = @user.errors.full_messages
       render :new

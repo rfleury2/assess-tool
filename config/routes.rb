@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resource :dashboard, only: [:show]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

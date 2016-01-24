@@ -10,7 +10,7 @@ RSpec.describe SessionsController, type: :controller do
       end
 
       it 'redirects to home page' do
-        expect(request).to redirect_to root_path
+        expect(request).to redirect_to dashboard_path
       end
 
       it { should_not set_flash }

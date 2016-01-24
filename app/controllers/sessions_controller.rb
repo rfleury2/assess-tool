@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:user][:email])
     if can_authenticate?
       assign_cookie
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash[:errors] = [ERROR_MESSAGE]
       render :new

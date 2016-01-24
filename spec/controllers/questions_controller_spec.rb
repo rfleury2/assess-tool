@@ -18,8 +18,8 @@ RSpec.describe QuestionsController, type: :controller do
         expect(question.creator).to eq user
       end
 
-      it 'redirects to the dashboard' do
-        expect(request).to redirect_to dashboard_path
+      it 'redirects to the question' do
+        expect(request).to redirect_to question_path(question)
       end
 
       it { should_not set_flash }

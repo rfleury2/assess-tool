@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to dashboard_path
+      redirect_to question_path(@question)
     else
       flash[:errors] = @question.errors.full_messages
       render :new
@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find_by(id: params[:id])
   end
 
   def edit

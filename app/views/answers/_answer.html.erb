@@ -1,3 +1,7 @@
 <li class="list-group-item">
-  <%= answer.content %> - <%= answer.correct %>
+  <%= answer.content %>
+
+  <% if answer.correct %>
+    <span class='fa fa-check fa-2x'></span>
+  <% end %>
 </li>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: [:show]
 
+  resources :questions
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
 
+  has_many :questions, foreign_key: :creator_id
+
   has_secure_password
 
   validates_format_of :email, 

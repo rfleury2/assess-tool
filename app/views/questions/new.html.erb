@@ -1,0 +1,12 @@
+<h1>Create question:</h1>
+
+<%= render partial: "shared/errors" %>
+
+<%= form_for @question do |f| %>
+  <div class="form-group">
+    <%= f.label :prompt, class: "form-label" %>
+    <%= f.text_area :prompt, class: "form-control", placeholder: "Who is the president of France?" %>
+  </div>
+
+  <%= f.submit "Create", class: "btn btn-success" %>
+<% end %>

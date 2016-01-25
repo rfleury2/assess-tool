@@ -10,6 +10,21 @@ class AnswersController < ApplicationController
     end
   end
 
+  def edit
+    @answer = Answer.find_by(id: params[:id])
+    return render partial: 'edit'
+  end
+
+  def update
+    @answer = Answer.find_by(id: params[:id])
+    if @answer.update_attributes(answer_params)
+      return render @answer, status: 200
+    else
+      flash[:errors] = @answer.errors.full_messages
+      return render partial: 'shared/errors', status: 203
+    end
+  end
+
   def destroy
     answer = Answer.find_by(id: params[:id])
     if answer.try(:destroy)

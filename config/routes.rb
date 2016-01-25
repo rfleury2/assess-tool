@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
   resources :questions do
-    resources :answers, only: [:create, :destroy, :update]
+    resources :answers, only: [:create, :edit, :update, :destroy]
   end
 
   # Example of regular route:

@@ -27,6 +27,13 @@ class QuestionsController < ApplicationController
   def destroy
   end 
 
+  # submits a question for approval from draft
+  def finish
+    # check for correct answer(s)
+    # assign role 'live'
+    redirect_to :back
+  end
+
   private
 
   def question_params

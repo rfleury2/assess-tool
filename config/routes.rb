@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
   resources :questions do
+    post 'finish' => 'questions#finish'
     resources :answers, only: [:create, :edit, :update, :destroy]
   end
 

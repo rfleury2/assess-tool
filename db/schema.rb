@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124025905) do
+ActiveRecord::Schema.define(version: 20160126005950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20160124025905) do
   create_table "questions", force: :cascade do |t|
     t.text     "prompt"
     t.integer  "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "stage",      default: "draft"
   end
 
   add_index "questions", ["prompt"], name: "index_questions_on_prompt", using: :btree

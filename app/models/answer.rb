@@ -6,4 +6,6 @@ class Answer < ActiveRecord::Base
   validates_presence_of :content
   validates_inclusion_of :correct, in: [true, false]
   validates_presence_of :question_id
+
+  validates_uniqueness_of :content, scoped_to: :question_id
 end

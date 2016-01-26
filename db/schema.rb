@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20160126005950) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
-    t.boolean  "correct"
+    t.boolean  "correct",     default: false
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree

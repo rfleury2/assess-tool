@@ -2,20 +2,6 @@
 
 <%= form_for :answer, url: question_answers_path(question), html: { class: 'answer-form' }, remote: true do |f| %>
   <div class='new-answer'>
-    <span class="form-group">
-      <%= f.text_field :content, class: "form-control answer-content" %>
-    </span>
-
-    <span class="answer-checkbox">
-      Correct answer?<%= f.check_box :correct, class: 'correct-answer-checkbox' %>
-      <span class='answer-correctness-indicator hidden'>
-        <!-- TODO: Implement binding for checkbox.  See answerForms -->
-        <!-- <span class='fa fa-check fa-2x checkmark'></span> -->
-      </span>
-    </span>
-
-    <span class="answer-submit">
-      <%= f.submit "Submit", class: 'btn btn-primary' %>
-    </span>
+    <%= render partial: 'answers/form', locals: { f: f } %>
   </div>
 <% end %>

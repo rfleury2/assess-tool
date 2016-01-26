@@ -1,0 +1,16 @@
+<span class="form-group">
+  <%= f.text_field :content, class: "form-control answer-content" %>
+</span>
+
+<span class="answer-checkbox">
+  <div class="checkbox checkbox-success checkbox-inline">
+    <input type="checkbox" name="answer[correct]">
+    <label for="answer[correct]">
+        Correct answer?
+    </label>
+  </div>
+</span>
+
+<span class="answer-submit">
+  <%= f.submit "Submit", class: 'btn btn-success' %>
+</span>

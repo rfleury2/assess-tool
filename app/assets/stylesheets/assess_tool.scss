@@ -24,6 +24,7 @@ footer {
 
 .answer-checkbox {
   display: inline;
+  margin: auto 20px auto 20px;
 }
 
 .new-answer {
@@ -40,6 +41,20 @@ footer {
 
 
 // Answer
+.answer-form {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 .answer-edit {
   color: black !important;
+}
+
+// Question
+.question-header {
+  margin: 20px;
+}
+
+.question-prompt {
+  display: inline;
 }

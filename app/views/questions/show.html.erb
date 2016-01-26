@@ -1,8 +1,8 @@
-<div>
-  <%= @question.prompt %>
+<div class='question-header'>
+  <h2 class='question-prompt'><%= @question.prompt %></h2>
   <span class='pull-right'>
     <%= link_to question_path(@question), method: :delete do %>
-      <span class='fa fa-remove fa-2x'></span>
+      <span class='fa fa-remove fa-2x nomark'></span>
     <% end %>
   </span>
 </div>

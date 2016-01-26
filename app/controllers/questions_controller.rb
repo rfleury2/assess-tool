@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_filter :require_login
+
   def new
     @question = Question.new
   end

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :require_login, only: [:destroy]
+
   ERROR_MESSAGE = "Your email or password is incorrect."
 
   def new

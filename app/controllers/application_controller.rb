@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @_current_user ||= cookies[:auth_token] && User.find_by(auth_token: cookies[:auth_token])
   end
+
+  def require_login
+    redirect_to new_session_path unless current_user
+  end
 end

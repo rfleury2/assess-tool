@@ -88,6 +88,26 @@ RSpec.describe AnswersController, type: :controller do
         expect(find_answer.content).to eq 'new content'
         expect(find_answer.correct).to eq true
       end
+
+      it { should_not set_flash }
+    end
+
+    describe 'invalid' do
+      before do
+        request = xhr(:put, :update, invalid_params)
+      end
+
+      it 'renders error template' do
+        expect(request).to render_template 'shared/_errors'
+      end
+
+      it 'does not update its attributes' do
+        find_answer = Answer.find(answer.id)
+        expect(find_answer.content).to eq answer.content
+        expect(find_answer.correct).to eq answer.correct
+      end
+
+      it { should set_flash }
     end
   end
 

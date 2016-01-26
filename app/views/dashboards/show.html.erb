@@ -1,1 +1,7 @@
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <div><%= link_to question.prompt, question_path(question) %></div>
+<% end %>
+
 <%= link_to "New question", new_question_path %>

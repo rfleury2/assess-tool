@@ -29,9 +29,16 @@ class QuestionsController < ApplicationController
 
   # submits a question for approval from draft
   def finish
-    # check for correct answer(s)
-    # assign role 'live'
-    redirect_to :back
+    # TODO: extract to service object when this gets bigger.  
+    # TODO: extract questions model finish as a concern
+    @question = Question.find_by(id: params[:question_id])
+    if @question.has_correct_answer?
+      flash[:success] = "Question saved successfully!"
+      redirect_to dashboard_path
+    else
+      # flash[:errors] = ["No correct answer selected.  Try again."]
+      render :show
+    end
   end
 
   private

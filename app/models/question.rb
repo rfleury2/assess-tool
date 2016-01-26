@@ -3,4 +3,8 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   validates_presence_of :prompt
+
+  def has_correct_answer?
+    self.answers.pluck(:correct).include?(true)
+  end
 end

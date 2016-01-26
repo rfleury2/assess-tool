@@ -48,6 +48,49 @@ RSpec.describe AnswersController, type: :controller do
     end
   end
 
+  describe 'GET edit' do
+    let(:answer) { FactoryGirl.create(:answer) }
+
+    before do
+      request = xhr(:get, :edit, { id: answer.id, question_id: answer.question.id })
+    end
+
+    it 'renders form template' do
+      expect(request).to render_template 'answers/_edit'
+    end
+  end
+
+  describe 'PUT update' do
+    let!(:answer) { FactoryGirl.create(:answer) }
+    let(:valid_params) do
+      { id: answer.id,
+        question_id: answer.question.id,
+        answer: { content: 'new content', correct: true }
+      }
+    end
+    let(:invalid_params) do
+      { id: answer.id,
+        question_id: answer.question.id,
+        answer: { content: '', correct: true } }
+    end
+
+    describe 'valid' do
+      before do
+        request = xhr(:put, :update, valid_params)
+      end
+
+      it 'renders the new answer' do
+        expect(request).to render_template 'answers/_answer'
+      end
+
+      it 'updates its attributes' do
+        find_answer = Answer.find(answer.id)
+        expect(find_answer.content).to eq 'new content'
+        expect(find_answer.correct).to eq true
+      end
+    end
+  end
+
   describe 'DELETE destroy' do
     describe 'valid answer' do
       let!(:valid_answer) { FactoryGirl.create(:answer) }

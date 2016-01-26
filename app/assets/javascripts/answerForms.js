@@ -1,11 +1,8 @@
 $(document).ready(function() {
-  loadCreateAnswer();
-  loadEditAnswer();
-  loadUpdateAnswer();
-  loadDeleteAnswer();
+  loadBindings();
 });
 
-var reloadBindings = function() {
+var loadBindings = function() {
   loadCreateAnswer();
   loadEditAnswer();
   loadUpdateAnswer();
@@ -26,7 +23,7 @@ var loadCreateAnswer = function() {
     clearInputs();
     if(xhr.status === 200) {
       $("#questions-list").append(xhr.responseText);
-      reloadBindings()
+      loadBindings()
     } else if(xhr.status === 203) {
       $("#questions-error").append(xhr.responseText);
     }
@@ -41,7 +38,7 @@ var loadEditAnswer = function() {
     $(".answer-edit").on('ajax:success', function(e, data, status, xhr) {
       listItem.empty()
       listItem.append(xhr.responseText)
-      reloadBindings()
+      loadBindings()
       $('.new-answer').toggleClass('hidden')
     });
   });
@@ -54,7 +51,7 @@ var loadUpdateAnswer = function() {
       listItem.empty()
       listItem.replaceWith(xhr.responseText)
       $('.new-answer').toggleClass('hidden')
-      reloadBindings()
+      loadBindings()
     } else if(xhr.status === 203) {
       console.log(xhr)
       $(".edit-answer-errors").empty();

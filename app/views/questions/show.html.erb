@@ -1,4 +1,11 @@
-<div><%= @question.prompt %></div>
+<div>
+  <%= @question.prompt %>
+  <span class='pull-right'>
+    <%= link_to question_path(@question), method: :delete do %>
+      <span class='fa fa-remove fa-2x'></span>
+    <% end %>
+  </span>
+</div>
 
 <ul id="questions-list" class="list-group">
   <%= render @question.answers %>

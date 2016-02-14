@@ -1,17 +1,21 @@
 <li class="answer list-group-item">
-  <%= answer.content %>
-
-  <%= link_to edit_question_answer_path(answer.question, answer), method: :get, remote: true, class: 'answer-edit' do %>
-    <span class='fa fa-pencil fa-2x'></span>
-  <% end %>
-
-  <%= link_to question_answer_path(answer.question, answer), method: :delete, remote: true, class: 'answer-delete' do %>
-    <span class='fa fa-remove fa-2x nomark'></span>
-  <% end %>
-
-  <% if answer.correct %>
-    <span class='pull-right'>
+  <span class='col-xs-1 answer-checkmark'>
+    <% if answer.correct %>
       <span class='fa fa-check fa-2x checkmark'></span>
-    </span>
-  <% end %>
+    <% end %>
+  </span>
+
+  <span class='answer-content'>
+    <%= answer.content %>
+  </span>
+
+  <span class='answer-change-links pull-right'>
+    <%= link_to edit_question_answer_path(answer.question, answer), method: :get, remote: true, class: 'answer-edit' do %>
+      <span class='fa fa-pencil fa-2x'></span>
+    <% end %>
+
+    <%= link_to question_answer_path(answer.question, answer), method: :delete, remote: true, class: 'answer-delete' do %>
+      <span class='fa fa-remove fa-2x nomark'></span>
+    <% end %>
+  </span>
 </li>

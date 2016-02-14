@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :question do
-    prompt "Who was president of Brazil in 1991?"
+    prompt Faker::Hipster.sentence #=> "Park iphone leggings put a bird on it."
     association :creator, factory: :user
   end
 end

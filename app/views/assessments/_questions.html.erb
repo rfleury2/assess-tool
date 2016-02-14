@@ -1,0 +1,9 @@
+<%= form_for @assessment, url: assessment_assign_questions_path(@assessment), method: :put do |f| %>
+  <%= f.collection_check_boxes :question_ids, current_user.questions, :id, :prompt do |question| %>
+    <div class="questions-to-assessment-show checkbox checkbox-success">
+      <%= question.check_box %>
+      <%= question.label %>
+    </div>
+  <% end %>
+  <%= f.submit "Assign Questions", class: "btn btn-success" %>
+<% end %>

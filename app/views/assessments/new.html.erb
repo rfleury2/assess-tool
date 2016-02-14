@@ -1,0 +1,12 @@
+<h1>Create assessment:</h1>
+
+<%= render partial: "shared/errors" %>
+
+<%= form_for @assessment do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: "form-label" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Spring 2016 Midterm" %>
+  </div>
+
+  <%= f.submit "Create", class: "btn btn-success" %> - Next step - Assign Questions 
+<% end %>

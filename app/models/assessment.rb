@@ -3,5 +3,5 @@ class Assessment < ActiveRecord::Base
 
   validates_presence_of :title, :creator
 
-  # has_many :questions, through: :question_answers
+  has_and_belongs_to_many :questions
 end

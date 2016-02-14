@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     resources :answers, only: [:create, :edit, :update, :destroy]
   end
 
+  resources :assessments, only: [:new, :create, :show] do
+    get 'add_questions'
+    put 'assign_questions'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

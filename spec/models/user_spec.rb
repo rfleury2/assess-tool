@@ -20,6 +20,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:email) }
   end 
 
+  it { should have_many :assessments }
+
+  it { should have_many :questions }
+
   it { should validate_presence_of(:name) }
 
   it { should validate_presence_of(:password) }

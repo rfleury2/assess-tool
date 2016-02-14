@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def require_login
     redirect_to new_session_path unless current_user
   end
+
+  def redirect_if_logged_in
+    redirect_to dashboard_path if current_user
+  end
 end

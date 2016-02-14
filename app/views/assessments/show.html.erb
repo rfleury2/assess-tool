@@ -1,0 +1,8 @@
+<h1><%= @assessment.title %></h1>
+<% @assessment.questions.each do |question| %>
+  <div><%= question.prompt %></div>
+<% end %>
+
+<%= link_to "Edit questions", assessment_add_questions_path(@assessment), class: 'btn btn-primary' %>
+
+<%= link_to "Export to PDF (NI)", dashboard_path, class: 'btn btn-primary' %>

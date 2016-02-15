@@ -1,7 +1,13 @@
 <h1><%= @assessment.title %></h1>
-<% @assessment.questions.each do |question| %>
-  <div><%= question.prompt %></div>
-<% end %>
+
+<ul class='questions-in-assessment'>
+  <% @assessment.questions.each do |question| %>
+    <li class='list-group-item'>
+      <span class='prompt-in-assessment'><%= question.prompt %></span>
+      <span class='answer-count-in-assessment'><%= question.answer_count %> answers</span>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to "Edit questions", assessment_add_questions_path(@assessment), class: 'btn btn-primary' %>
 

@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   def has_correct_answer?
     self.answers.pluck(:correct).include?(true)
   end
+
+  def answer_count
+    answers.count
+  end
 end

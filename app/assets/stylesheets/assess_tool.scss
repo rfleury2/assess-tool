@@ -73,5 +73,18 @@ footer {
 
 // Assessment
 .questions-to-assessment-show {
-  padding: 10px;
+  padding: 10px 10px 0;
+}
+
+.questions-in-assessment {
+  padding: 20px 0px;
+}
+
+.prompt-in-assessment {
+  
+}
+
+.answer-count-in-assessment {
+  color: gray;
+  font-size: .8em;
 }
